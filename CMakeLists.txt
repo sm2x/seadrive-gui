@@ -4,7 +4,7 @@ PROJECT(seadrive-gui)
 
 SET(SEADRIVE_GUI_VERSION_MAJOR 1)
 SET(SEADRIVE_GUI_VERSION_MINOR 0)
-SET(SEADRIVE_GUI_VERSION_PATCH 1)
+SET(SEADRIVE_GUI_VERSION_PATCH 0)
 SET(PROJECT_VERSION "${SEADRIVE_GUI_VERSION_MAJOR}.${SEADRIVE_GUI_VERSION_MINOR}.${SEADRIVE_GUI_VERSION_PATCH}")
 ADD_DEFINITIONS(-DSEADRIVE_GUI_VERSION=${PROJECT_VERSION})
 
@@ -221,6 +221,7 @@ SET(moc_headers
   src/ui/loading-view.h
   src/ui/login-dialog.h
   src/ui/seafilelink-dialog.h
+  src/ui/sso-dialog.h
   src/ui/search-bar.h
   src/ui/search-dialog.h
   src/ui/settings-dialog.h
@@ -242,6 +243,7 @@ SET(ui_files
   ui/filter-menu.ui
   ui/init-sync-dialog.ui
   ui/login-dialog.ui
+  ui/sso-dialog.ui
   ui/settings-dialog.ui
   ui/about-dialog.ui
   ui/disk-letter-dialog.ui
@@ -333,6 +335,7 @@ SET(seadrive_gui_sources
   src/ui/init-sync-dialog.cpp
   src/ui/loading-view.cpp
   src/ui/login-dialog.cpp
+  src/ui/sso-dialog.cpp
   src/ui/seafilelink-dialog.cpp
   src/ui/search-bar.cpp
   src/ui/search-dialog.cpp
@@ -546,7 +549,7 @@ endif()
 ####################
 
 
-ADD_EXECUTABLE(seadrive-gui ${GUI_TYPE}
+ADD_EXECUTABLE(teamdrive-gui ${GUI_TYPE}
   ${seadrive_gui_sources}
   ${moc_output}
   ${ui_output}
@@ -554,9 +557,9 @@ ADD_EXECUTABLE(seadrive-gui ${GUI_TYPE}
   ${EXTRA_SOURCES}
 )
 
-INSTALL(TARGETS seadrive-gui DESTINATION bin)
+INSTALL(TARGETS teamdrive-gui DESTINATION bin)
 
-TARGET_LINK_LIBRARIES(seadrive-gui
+TARGET_LINK_LIBRARIES(teamdrive-gui
   ${SPARKLE_LIBS}
   ${SC_LIBS}
 
@@ -570,34 +573,34 @@ TARGET_LINK_LIBRARIES(seadrive-gui
   ${EXTRA_LIBS}
 )
 
-QT5_USE_MODULES(seadrive-gui Core Gui Widgets Network)
-QT5_USE_MODULES(seadrive-gui ${WEBKIT_NAME} ${WEBKIT_WIDGETS_NAME})
+QT5_USE_MODULES(teamdrive-gui Core Gui Widgets Network)
+QT5_USE_MODULES(teamdrive-gui ${WEBKIT_NAME} ${WEBKIT_WIDGETS_NAME})
 
 ## QtBus
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "BSD")
-  TARGET_LINK_LIBRARIES(seadrive-gui
+  TARGET_LINK_LIBRARIES(teamdrive-gui
     ${QT_QTDBUS_LIBRARIES}
   )
-  QT5_USE_MODULES(seadrive-gui ${USE_QT_LIBRARIES})
+  QT5_USE_MODULES(teamdrive-gui ${USE_QT_LIBRARIES})
 ENDIF()
 
 ### Xcode-related, build as a osx bundle
 IF(CMAKE_GENERATOR STREQUAL Xcode)
   ADD_DEFINITIONS(-DXCODE_APP)
-  SET_TARGET_PROPERTIES(seadrive-gui PROPERTIES
+  SET_TARGET_PROPERTIES(teamdrive-gui PROPERTIES
     MACOSX_BUNDLE true
     MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
   )
-  FIND_PROGRAM(seadrive seadrive)
-  SET(RESOURCES_DIR ${CMAKE_CURRENT_BINARY_DIR}/\${CONFIGURATION}/seadrive-gui.app/Contents/Resources)
-  ADD_CUSTOM_COMMAND(TARGET seadrive-gui
+  FIND_PROGRAM(teamdrive teamdrive)
+  SET(RESOURCES_DIR ${CMAKE_CURRENT_BINARY_DIR}/\${CONFIGURATION}/teamdrive-gui.app/Contents/Resources)
+  ADD_CUSTOM_COMMAND(TARGET teamdrive-gui
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E make_directory ${RESOURCES_DIR}
       # We rename the icon because: when we have both the program "seadrive" and
       # the icon "seadrive.icns" in "Resources" dir, the icon won't be able to
       # be displayed as the bundle icon.
       COMMAND ${CMAKE_COMMAND} -E copy seadrive.icns ${RESOURCES_DIR}/seadrive-icon.icns
-      COMMAND ${CMAKE_COMMAND} -E copy ${seadrive} ${RESOURCES_DIR}/.
+      COMMAND ${CMAKE_COMMAND} -E copy ${teamdrive} ${RESOURCES_DIR}/.
   )
   SET(CMAKE_XCODE_ATTRIBUTE_GCC_GENERATE_DEBUGGING_SYMBOLS "YES")
   SET(CMAKE_XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf-with-dsym")

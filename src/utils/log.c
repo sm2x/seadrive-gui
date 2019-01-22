@@ -58,7 +58,7 @@ int
 applet_log_init (const char *seadrive_dir)
 {
     char *logdir = g_build_filename (seadrive_dir, "logs", NULL);
-    char *file = g_build_filename(logdir, "seadrive-gui.log", NULL);
+    char *file = g_build_filename(logdir, "teamdrive-gui.log", NULL);
 
     if (checkdir_with_mkdir (logdir) < 0) {
         g_free (logdir);

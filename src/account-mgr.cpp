@@ -13,8 +13,7 @@
 #include "api/api-error.h"
 #include "api/requests.h"
 #include "rpc/rpc-client.h"
-#include "ui/login-dialog.h"
-#include "shib/shib-login-dialog.h"
+#include "ui/sso-dialog.h"
 #include "settings-mgr.h"
 #include "account-info-service.h"
 
@@ -305,7 +304,7 @@ int AccountManager::removeAccount(const Account& account)
         if (!accounts_.empty()) {
             validateAndUseAccount(accounts_[0]);
         } else {
-            LoginDialog login_dialog;
+            SSODialog login_dialog;
             login_dialog.exec();
         }
     }
@@ -511,15 +510,7 @@ void AccountManager::invalidateCurrentLogin()
 bool AccountManager::reloginAccount(const Account &account)
 {
     bool accepted;
-    do {
-        if (account.isShibboleth) {
-            ShibLoginDialog shib_dialog(account.serverUrl, gui->settingsManager()->getComputerName());
-            accepted = shib_dialog.exec() == QDialog::Accepted;
-            break;
-        }
-        LoginDialog dialog;
-        dialog.initFromAccount(account);
-        accepted = dialog.exec() == QDialog::Accepted;
-    } while (0);
+    SSODialog dialog;
+    accepted = dialog.exec() == QDialog::Accepted;
     return accepted;
 }

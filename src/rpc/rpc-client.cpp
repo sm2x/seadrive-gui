@@ -23,9 +23,9 @@ extern "C" {
 namespace {
 
 #if defined(Q_OS_WIN32)
-const char *kSeadriveSockName = "\\\\.\\pipe\\seadrive_";
+const char *kSeadriveSockName = "\\\\.\\pipe\\teamdrive_";
 #else
-const char *kSeadriveSockName = "seadrive.sock";
+const char *kSeadriveSockName = "teamdrive.sock";
 #endif
 
 const char *kSeadriveRpcService = "seadrive-rpcserver";

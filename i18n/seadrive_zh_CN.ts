@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>&lt;h4&gt;Seafile Drive Client %2&lt;/h4&gt;</source>
-        <translation>&lt;h4&gt;Seafile 挂载盘客户端 %2&lt;/h4&gt;</translation>
+        <translation type="vanished">&lt;h4&gt;Seafile 挂载盘客户端 %2&lt;/h4&gt;</translation>
     </message>
     <message>
         <source>&lt;h5&gt; REV %1 &lt;/h5&gt;</source>
-        <translation>&lt;h5&gt; 版本 %1 &lt;/h5&gt;</translation>
+        <translation type="vanished">&lt;h5&gt; 版本 %1 &lt;/h5&gt;</translation>
     </message>
     <message>
         <source>About</source>
@@ -26,6 +26,26 @@
     <message>
         <source>OK</source>
         <translation>确定</translation>
+    </message>
+    <message>
+        <source>&lt;h4&gt;%1 Client %2&lt;/h4&gt;</source>
+        <translation>&lt;h4&gt;%1 客户端 %2&lt;/h4&gt;</translation>
+    </message>
+    <message>
+        <source>Alibaba Enterprise Intelligence</source>
+        <translation>阿里巴巴企业智能</translation>
+    </message>
+    <message>
+        <source>please contact 1616-3 for help</source>
+        <translation type="unfinished">请拨打 1818-3 寻求帮助</translation>
+    </message>
+    <message>
+        <source>Consult</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Explain</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -627,6 +647,72 @@ Please click the &quot;Finish&quot; button to open %1 folder.</source>
     </message>
 </context>
 <context>
+    <name>SSODialog</name>
+    <message>
+        <source>%1 Single Sign On</source>
+        <translation>%1 单点登录</translation>
+    </message>
+    <message>
+        <source>Starting Single Sign On ...</source>
+        <translation>开始单点登录中 ...</translation>
+    </message>
+    <message>
+        <source>Please login in your browser with %1</source>
+        <translation>请在浏览器中登录 %1</translation>
+    </message>
+    <message>
+        <source>this link</source>
+        <translation>本链接</translation>
+    </message>
+    <message>
+        <source>Failed to get SSO link:
+%1</source>
+        <translation>获取单点登录链接 %1 失败</translation>
+    </message>
+    <message>
+        <source>Failed to get SSO status:
+%1</source>
+        <translation>获取单点登录失败的状态码：%1</translation>
+    </message>
+    <message>
+        <source>Fetching account information ...</source>
+        <translation>获取账号信息中 ...</translation>
+    </message>
+    <message>
+        <source>Failed to save current account</source>
+        <translation>保存当前账号失败</translation>
+    </message>
+    <message>
+        <source>Successfully logged in as %1</source>
+        <translation>用 %1 身份成功登录</translation>
+    </message>
+    <message>
+        <source>Failed to get account information:
+%1</source>
+        <translation>获取账号信息失败：%1</translation>
+    </message>
+    <message>
+        <source>Login not finished yet. Really quit?</source>
+        <translation>未完成登录， 确定要退出？</translation>
+    </message>
+    <message>
+        <source>Dialog</source>
+        <translation>对话框</translation>
+    </message>
+    <message>
+        <source>Single Sign On</source>
+        <translation>单点登录</translation>
+    </message>
+    <message>
+        <source>logo</source>
+        <translation>标识</translation>
+    </message>
+    <message>
+        <source>Starting Single Sign On</source>
+        <translation>启动单点登录</translation>
+    </message>
+</context>
+<context>
     <name>SeadriveGui</name>
     <message>
         <source>You need to approve %1 kernel extension manually in the system preferences. Click OK to open the system preferences dialog. Please re-launch %1 after that.</source>
@@ -638,7 +724,7 @@ Please click the &quot;Finish&quot; button to open %1 folder.</source>
     </message>
     <message>
         <source>Faild to choose a disk letter</source>
-        <translation>选择盘符失败</translation>
+        <translation type="vanished">选择盘符失败</translation>
     </message>
     <message>
         <source>failed to add default account</source>
@@ -1099,7 +1185,7 @@ Please click the &quot;Finish&quot; button to open %1 folder.</source>
     </message>
     <message>
         <source>Enable search in finder</source>
-        <translation type="unfinished"></translation>
+        <translation>Finder中启用搜索</translation>
     </message>
 </context>
 <context>

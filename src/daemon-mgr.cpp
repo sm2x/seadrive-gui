@@ -40,12 +40,12 @@ const int kDaemonRestartInternvalMSecs = 5000;
 const int kDaemonRestartMaxRetries = 10;
 
 #if defined(Q_OS_WIN32)
-const char *kSeadriveSockName = "\\\\.\\pipe\\seadrive_";
-const char *kSeadriveExecutable = "seadrive.exe";
+const char *kSeadriveSockName = "\\\\.\\pipe\\teamdrive_";
+const char *kSeadriveExecutable = "teamdrive.exe";
 const int kDLLMissingErrorCode = -1073741515;
 #else
-const char *kSeadriveSockName = "seadrive.sock";
-const char *kSeadriveExecutable = "seadrive";
+const char *kSeadriveSockName = "teamdrive.sock";
+const char *kSeadriveExecutable = "teamdrive";
 #endif
 
 typedef enum {
@@ -145,7 +145,7 @@ QStringList DaemonManager::collectSeaDriveArgs()
     QStringList args;
 
     args << "-d" << current_cache_dir_;
-    args << "-l" << QDir(gui->logsDir()).absoluteFilePath("seadrive.log");
+    args << "-l" << QDir(gui->logsDir()).absoluteFilePath("teamdrive.log");
     if (I18NHelper::getInstance()->isChinese()) {
         args << "-L" << "zh_cn";
     }

@@ -180,7 +180,7 @@ void SeafileTrayIcon::createContextMenu()
 
     context_menu_->addSeparator();
     account_menu_ = new QMenu(tr("Accounts"), NULL);
-    context_menu_->addMenu(account_menu_);
+    // context_menu_->addMenu(account_menu_);
 
     context_menu_->addSeparator();
     context_menu_->addAction(about_action_);
@@ -520,12 +520,12 @@ void SeafileTrayIcon::about()
 
 void SeafileTrayIcon::openHelp()
 {
-    QString url;
-    if (QLocale::system().name() == "zh_CN") {
-        url = "https://help.seafile.com/zh/seadrive_client/install_seadrive_client.html";
-    } else {
-        url = "https://help.seafile.com/en/drive_client/using_drive_client.html";
-    }
+    QString url = "https://file.alibaba-inc.com/help/";
+    // if (QLocale::system().name() == "zh_CN") {
+    //     url = "https://help.seafile.com/zh/seadrive_client/install_seadrive_client.html";
+    // } else {
+    //     url = "https://help.seafile.com/en/drive_client/using_drive_client.html";
+    // }
 
     QDesktopServices::openUrl(QUrl(url));
 }

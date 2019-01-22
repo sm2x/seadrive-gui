@@ -28,7 +28,7 @@
 
 namespace {
 
-const char *appName = "seadrive-gui";
+const char *appName = "teamdrive-gui";
 
 void initGlib()
 {

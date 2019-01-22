@@ -20,7 +20,7 @@ namespace
 #ifdef Q_OS_WIN32
     const char *kSparkleAppcastURI = "https://www.seafile.com/api/client-updates/seadrive-client-windows/appcast.xml";
     const char *kSparkleAppcastURIForCN = "https://www.seafile.com/api/client-updates/seadrive-client-windows-cn/appcast.xml";
-    const char *kWinSparkleRegistryPath = "SOFTWARE\\Seafile\\Seafile Drive Client\\WinSparkle";
+    const char *kWinSparkleRegistryPath = "SOFTWARE\\TeamDrive\\TeamDrive Drive Client\\WinSparkle";
 #else
     const char *kSparkleAppcastURI = "https://www.seafile.com/api/client-updates/seadrive-client-mac/appcast.xml";
     const char *kSparkleAppcastURIForCN = "https://www.seafile.com/api/client-updates/seadrive-client-mac-cn/appcast.xml";
@@ -64,8 +64,8 @@ public:
         win_sparkle_set_registry_path(kWinSparkleRegistryPath);
         win_sparkle_set_appcast_url(getAppcastURI().toUtf8().data());
         win_sparkle_set_app_details(
-            L"Seafile",
-            L"Seafile Drive Client",
+            L"TeamDrive",
+            L"TeamDrive Drive Client",
             QString(STRINGIZE(SEADRIVE_GUI_VERSION)).toStdWString().c_str());
     }
 
@@ -161,7 +161,7 @@ void AutoUpdateService::checkUpdate()
 
 
 bool AutoUpdateService::shouldSupportAutoUpdate() const {
-    return QString(getBrand()) == "SeaDrive";
+    return QString(getBrand()) == "TeamDrive";
 }
 
 bool AutoUpdateService::autoUpdateEnabled() const {

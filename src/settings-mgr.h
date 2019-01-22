@@ -94,6 +94,9 @@ public:
     QString getLastShibUrl();
     void setLastShibUrl(const QString& url);
 
+    QString getLastSSOUrl();
+    void setLastSSOUrl(const QString& url);
+
 #ifdef HAVE_FINDER_SYNC_SUPPORT
     bool getFinderSyncExtension() const;
     bool getFinderSyncExtensionAvailable() const;

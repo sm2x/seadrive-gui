@@ -19,7 +19,7 @@
 #endif
 
 static NSString *const kFinderSyncMachPort =
-    @"com.seafile.seadrive.findersync.machport";
+    @"com.teamdrive.teamdrive-client.findersync.machport";
 
 static constexpr int kWatchDirMax = 100;
 static constexpr int kPathMaxSize = 1024;

@@ -40,7 +40,7 @@ static constexpr double kGetFileStatusInterval = 2.0; // seconds
 @end
 
 static const char *const kClientCommandQueueName =
-    "com.seafile.seadrive.findersync.ClientCommandQueue";
+    "com.teamdrive.teamdrive.findersync.ClientCommandQueue";
 static const NSArray *const kBadgetIdentifiers = @[
     // According to the document
     // https://developer.apple.com/library/mac/documentation/FinderSync/Reference/FIFinderSyncController_Class/#//apple_ref/occ/instm/FIFinderSyncController/setBadgeIdentifier:forURL:
@@ -358,11 +358,11 @@ cleanFileStatus(std::unordered_map<std::string, PathStatus> *file_status,
 
 #if 0
 - (NSString *)toolbarItemName {
-  return @"SeaDrive FinderSync";
+  return @"TeamDrive FinderSync";
 }
 
 - (NSString *)toolbarItemToolTip {
-  return @"SeaDrive FinderSync: Click the toolbar item for a menu.";
+  return @"TeamDrive FinderSync: Click the toolbar item for a menu.";
 }
 
 - (NSImage *)toolbarItemImage {
@@ -379,13 +379,13 @@ cleanFileStatus(std::unordered_map<std::string, PathStatus> *file_status,
 
     // Produce a menu for the extension.
     NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
-    NSMenuItem *shareLinkItem =
-        [menu addItemWithTitle:NSLocalizedString(@"Get Seafile Share Link",
-                                                 @"Get Seafile Share Link")
-                        action:@selector(shareLinkAction:)
-                 keyEquivalent:@""];
+    // NSMenuItem *shareLinkItem =
+    //     [menu addItemWithTitle:NSLocalizedString(@"Get Seafile Share Link",
+    //                                              @"Get Seafile Share Link")
+    //                     action:@selector(shareLinkAction:)
+    //              keyEquivalent:@""];
     NSImage *seafileImage = [NSImage imageNamed:@"seadrive.icns"];
-    [shareLinkItem setImage:seafileImage];
+    // [shareLinkItem setImage:seafileImage];
 
     NSArray *items =
         [[FIFinderSyncController defaultController] selectedItemURLs];
@@ -398,12 +398,12 @@ cleanFileStatus(std::unordered_map<std::string, PathStatus> *file_status,
     if (internal_link_supported &&
         findRepoContainPath(watched_repos_, file_path) !=
             watched_repos_.end()) {
-        NSMenuItem *internalLinkItem = [menu
-            addItemWithTitle:NSLocalizedString(@"Get Seafile Internal Link",
-                                               @"Get Seafile Internal Link")
-                      action:@selector(internalLinkAction:)
-               keyEquivalent:@""];
-        [internalLinkItem setImage:seafileImage];
+        // NSMenuItem *internalLinkItem = [menu
+        //     addItemWithTitle:NSLocalizedString(@"Get Seafile Internal Link",
+        //                                        @"Get Seafile Internal Link")
+        //               action:@selector(internalLinkAction:)
+        //        keyEquivalent:@""];
+        // [internalLinkItem setImage:seafileImage];
     }
 
     NSMenuItem *downloadFileItem =

@@ -8,14 +8,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;h4&gt;Seafile Drive Client %2&lt;/h4&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;h5&gt; REV %1 &lt;/h5&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25,6 +17,26 @@
     </message>
     <message>
         <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;h4&gt;%1 Client %2&lt;/h4&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alibaba Enterprise Intelligence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please contact 1616-3 for help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Consult</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Explain</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -625,6 +637,72 @@ Please click the &quot;Finish&quot; button to open %1 folder.</source>
     </message>
 </context>
 <context>
+    <name>SSODialog</name>
+    <message>
+        <source>%1 Single Sign On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starting Single Sign On ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please login in your browser with %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>this link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to get SSO link:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to get SSO status:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fetching account information ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save current account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully logged in as %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to get account information:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login not finished yet. Really quit?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Single Sign On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starting Single Sign On</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SeadriveGui</name>
     <message>
         <source>You need to approve %1 kernel extension manually in the system preferences. Click OK to open the system preferences dialog. Please re-launch %1 after that.</source>
@@ -632,10 +710,6 @@ Please click the &quot;Finish&quot; button to open %1 folder.</source>
     </message>
     <message>
         <source>Failed to initialize: failed to install kernel driver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Faild to choose a disk letter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

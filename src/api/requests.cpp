@@ -56,6 +56,7 @@ const char* kAuthPingURL = "api2/auth/ping/";
 
 const char* kLatestVersionUrl = "https://seafile.com/api/seadrive-latest/";
 const char* kGetSmartLink = "api/v2.1/smart-link/";
+const char* kGetSSOLinkUrl = "api2/client-sso-link/";
 // #if defined(Q_OS_WIN32)
 // const char* kOsName = "windows";
 // #elif defined(Q_OS_LINUX)
@@ -1498,4 +1499,67 @@ void GetSmartLinkRequest::requestSuccess(QNetworkReply& reply)
         json_string_value(json_object_get(json.data(), "smart_link"));
 
     emit success(smart_link);
+}
+
+GetSSOLinkRequest::GetSSOLinkRequest(const QString& server_addr)
+    : SeafileApiRequest(::urlJoin(server_addr, kGetSSOLinkUrl),
+                        SeafileApiRequest::METHOD_POST)
+{
+}
+
+ void GetSSOLinkRequest::requestSuccess(QNetworkReply& reply)
+{
+    json_error_t error;
+    json_t* root = parseJSON(reply, &error);
+    if (!root) {
+        qWarning("failed to parse json:%s\n", error.text);
+        emit failed(ApiError::fromJsonError());
+        return;
+    }
+
+     QScopedPointer<json_t, JsonPointerCustomDeleter> json(root);
+    QMap<QString, QVariant> dict = mapFromJSON(json.data(), &error);
+    QString link = dict["link"].toString();
+    if (link.isEmpty()) {
+        emit failed(ApiError::fromHttpError(500));
+    } else {
+        emit success(link);
+    }
+}
+
+ GetSSOStatusRequest::GetSSOStatusRequest(const QUrl& status_check_link)
+    : SeafileApiRequest(status_check_link, SeafileApiRequest::METHOD_GET)
+{
+}
+
+ void GetSSOStatusRequest::requestSuccess(QNetworkReply& reply)
+{
+    json_error_t error;
+    json_t* root = parseJSON(reply, &error);
+    if (!root) {
+        qWarning("failed to parse json:%s\n", error.text);
+        emit failed(ApiError::fromJsonError());
+        return;
+    }
+
+     QScopedPointer<json_t, JsonPointerCustomDeleter> json(root);
+    QMap<QString, QVariant> dict = mapFromJSON(json.data(), &error);
+    QString status = dict["status"].toString();
+    if (status.isEmpty()) {
+        emit failed(ApiError::fromHttpError(500));
+    } else {
+        if (status == "waiting") {
+            emit success(status, "", "");
+        } else if (status == "error") {
+            emit failed(ApiError::fromHttpError(500));
+        } else if (status == "success") {
+            QString email = dict["email"].toString();
+            QString apikey = dict["apiToken"].toString();
+            if (email.isEmpty() || apikey.isEmpty()) {
+                emit failed(ApiError::fromHttpError(500));
+            } else {
+                emit success(status, email, apikey);
+            }
+        }
+    }
 }

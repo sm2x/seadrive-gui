@@ -55,7 +55,7 @@ ADD_EXECUTABLE(seadrive-finder-sync MACOSX_BUNDLE
 )
 
 SET_TARGET_PROPERTIES(seadrive-finder-sync PROPERTIES
-  OUTPUT_NAME "SeaDrive FinderSync"
+  OUTPUT_NAME "TeamDrive FinderSync"
   MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
   XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET "10.10"
   XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/../Frameworks @executable_path/../../../../Frameworks"
@@ -63,9 +63,9 @@ SET_TARGET_PROPERTIES(seadrive-finder-sync PROPERTIES
   XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++11"
   XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++"
   XCODE_ATTRIBUTE_DEVELOPMENT_LANGUAGE "English"
-  XCODE_ATTRIBUTE_LOCALIZED_RESOURCES_FOLDER_PATH "SeaDrive FinderSync.appex/English.lproj"
-  XCODE_ATTRIBUTE_INFOSTRINGS_PATH "SeaDrive FinderSync.appex/English.lproj/InfoPlist.strings"
-  XCODE_ATTRIBUTE_UNLOCALIZED_RESOURCES_FOLDER_PATH "SeaDrive FinderSync.appex"
+  XCODE_ATTRIBUTE_LOCALIZED_RESOURCES_FOLDER_PATH "TeamDrive FinderSync.appex/English.lproj"
+  XCODE_ATTRIBUTE_INFOSTRINGS_PATH "TeamDrive FinderSync.appex/English.lproj/InfoPlist.strings"
+  XCODE_ATTRIBUTE_UNLOCALIZED_RESOURCES_FOLDER_PATH "TeamDrive FinderSync.appex"
   )
 
 TARGET_LINK_LIBRARIES(seadrive-finder-sync
@@ -76,8 +76,8 @@ TARGET_LINK_LIBRARIES(seadrive-finder-sync
 
 ### rename to SeaDrive Client.appex and copy related resource files
 
-SET(BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CONFIGURATION}/SeaDrive FinderSync.app")
-SET(TARGET_DIR "${CMAKE_CURRENT_BINARY_DIR}/SeaDrive FinderSync.appex")
+SET(BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}/\${CONFIGURATION}/TeamDrive FinderSync.app")
+SET(TARGET_DIR "${CMAKE_CURRENT_BINARY_DIR}/TeamDrive FinderSync.appex")
 
 ADD_CUSTOM_TARGET(clean_old_target
   COMMAND ${CMAKE_COMMAND} -E remove -f ${TARGET_DIR}

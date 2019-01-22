@@ -17,7 +17,7 @@
 #include "utils/file-utils.h"
 #include "utils/log.h"
 #include "ui/tray-icon.h"
-#include "ui/login-dialog.h"
+#include "ui/sso-dialog.h"
 #include "ui/settings-dialog.h"
 #include "ui/about-dialog.h"
 #include "daemon-mgr.h"
@@ -52,9 +52,9 @@
 namespace {
 
 #if defined(Q_OS_WIN32)
-    const char *kSeadriveDirName = "seadrive";
+    const char *kSeadriveDirName = "teamdrive";
 #else
-    const char *kSeadriveDirName = ".seadrive";
+    const char *kSeadriveDirName = ".teamdrive";
 #endif
 
 enum DEBUG_LEVEL {
@@ -194,6 +194,7 @@ const char* const kHideConfigurationWizard = "HideConfigurationWizard";
 const char *const kSeafileConfigureFileName = "seafile.ini";
 const char *const kSeafileConfigurePath = "SOFTWARE\\Seafile";
 const int kIntervalBeforeShowInitVirtualDialog = 3000;
+const char *const kDiskLetter = "T:";
 #else
 const char *const kSeafileConfigureFileName = ".seafilerc";
 #endif
@@ -295,14 +296,14 @@ void SeadriveGui::start()
     if (settings_mgr_->getDiskLetter(&disk_letter)) {
         disk_letter_ = disk_letter;
     } else {
-        qWarning("disk letter not set, asking the user for it");
-        DiskLetterDialog dialog;
-        if (dialog.exec() != QDialog::Accepted) {
-            errorAndExit(tr("Faild to choose a disk letter"));
-            return;
-        }
-        disk_letter_ = dialog.diskLetter();
-        settings_mgr_->setDiskLetter(disk_letter_);
+        // qWarning("disk letter not set, asking the user for it");
+        // DiskLetterDialog dialog;
+        // if (dialog.exec() != QDialog::Accepted) {
+        //     errorAndExit(tr("Faild to choose a disk letter"));
+        //     return;
+        // }
+        // disk_letter_ = dialog.diskLetter();
+        settings_mgr_->setDiskLetter(QString(kDiskLetter));
     }
     qWarning("Using disk letter %s", toCStr(disk_letter_));
 #endif
@@ -350,6 +351,10 @@ void SeadriveGui::onDaemonStarted()
     settings_mgr_->loadSettings();
 
     if (first_use_ || account_mgr_->accounts().size() == 0) {
+    // first to start enable autostart
+#if defined(Q_OS_MAC)
+        set_seafile_auto_start(true);
+#endif
         do {
             QString username = readPreconfigureExpandedString(kPreconfigureUsername);
             QString token = readPreconfigureExpandedString(kPreconfigureUserToken);
@@ -369,7 +374,7 @@ void SeadriveGui::onDaemonStarted()
             if (readPreconfigureEntry(kHideConfigurationWizard).toInt())
                 break;
 
-            LoginDialog login_dialog;
+            SSODialog login_dialog;
             login_dialog.exec();
         } while (0);
     } else {

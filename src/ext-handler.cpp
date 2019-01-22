@@ -31,7 +31,7 @@
 
 namespace {
 
-const char *kSeafExtPipeName = "\\\\.\\pipe\\seadrive_ext_pipe_";
+const char *kSeafExtPipeName = "\\\\.\\pipe\\teamdrive_ext_pipe_";
 const int kPipeBufSize = 1024;
 
 const quint64 kReposInfoCacheMSecs = 2000;

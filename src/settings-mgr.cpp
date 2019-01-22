@@ -41,6 +41,7 @@ const char *kCacheDir = "cacheDir";
 const char *kFinderSync = "finderSync";
 #endif // HAVE_FINDER_SYNC_SUPPORT
 const char *kLastShibUrl = "lastShiburl";
+const char *kLastSSOUrl = "lastSSOurl";
 
 const char *kUseProxy = "use_proxy";
 const char *kUseSystemProxy = "use_system_proxy";
@@ -549,6 +550,26 @@ void SettingsManager::setLastShibUrl(const QString &url)
     QSettings settings;
     settings.beginGroup(kSettingsGroup);
     settings.setValue(kLastShibUrl, url);
+    settings.endGroup();
+}
+
+QString SettingsManager::getLastSSOUrl()
+{
+    QSettings settings;
+    QString url;
+
+     settings.beginGroup(kSettingsGroup);
+    url = settings.value(kLastSSOUrl, "").toString();
+    settings.endGroup();
+
+     return url;
+}
+
+ void SettingsManager::setLastSSOUrl(const QString &url)
+{
+    QSettings settings;
+    settings.beginGroup(kSettingsGroup);
+    settings.setValue(kLastSSOUrl, url);
     settings.endGroup();
 }
 

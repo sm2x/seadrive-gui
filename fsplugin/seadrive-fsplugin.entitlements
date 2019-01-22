@@ -8,7 +8,7 @@
     <true/>
     <key>com.apple.security.application-groups</key>
     <array>
-        <string>com.seafile.seadrive.findersync</string>
+        <string>com.teamdrive.teamdrive-client.findersync</string>
     </array>
 </dict>
 </plist>

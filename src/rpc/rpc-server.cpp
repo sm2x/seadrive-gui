@@ -27,11 +27,11 @@ class SettingsManager;
 namespace {
 
 #if defined(Q_OS_WIN32)
-const char *kSeaDriveSockName = "\\\\.\\pipe\\seadrive_client_";
+const char *kSeaDriveSockName = "\\\\.\\pipe\\teamdrive_client_";
 #else
-const char *kSeaDriveSockName = "seadrive_client.sock";
+const char *kSeaDriveSockName = "teamdrive_client.sock";
 #endif
-const char *kSeaDriveRpcService = "seadrive-client-rpcserver";
+const char *kSeaDriveRpcService = "teamdrive-client-rpcserver";
 
 QString getAppletRpcPipePath()
 {

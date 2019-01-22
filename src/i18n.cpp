@@ -10,35 +10,9 @@
 namespace {
 const char* langs[] = {
     NULL, //reserved for system locale
-    "ca",
-    "de_DE",
     "en",
-    "es",
-    "es_AR",
-    "es_MX",
-    "fr_FR",
-    "he_IL",
-    "hu_HU",
-    "is",
-    "it",
-    "ko_KR",
-    "nl_BE",
-    "pl_PL",
-    "pt_BR",
-    "pt_PT",
-    "ru",
-    "sk_SK",
-    "uk",
     "zh_CN",
     "zh_TW",
-    "tr",
-    "nl_NL",
-    "lv",
-    "ja",
-    "sv",
-    "cs_CZ",
-    "el_GR",
-    "nb_NO",
     NULL
     };
 void saveCurrentLanguage(int langIndex) {

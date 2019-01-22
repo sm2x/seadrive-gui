@@ -59,6 +59,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent),
         tr("Auto start %1 after login").arg(getBrand()));
 
     mTabWidget->setCurrentIndex(0);
+    mTabWidget->removeTab(3);
 
 #ifdef HAVE_SPARKLE_SUPPORT
     if (!AutoUpdateService::instance()->shouldSupportAutoUpdate()) {
@@ -302,6 +303,8 @@ void SettingsDialog::showEvent(QShowEvent *event)
     current_session_access_  = mgr->currentUserAccess();
     state = current_session_access_ ? Qt::Checked : Qt::Unchecked;
     mCurrentAccess->setCheckState(state);
+    mDiskLetterLabel->setVisible(false);
+    mDiskLetter->setVisible(false);
 #else
     mDiskLetterLabel->setVisible(false);
     mDiskLetter->setVisible(false);

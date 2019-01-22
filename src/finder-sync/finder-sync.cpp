@@ -8,13 +8,13 @@
 #include "utils/utils-mac.h"
 
 static const char* kApplePluginkitBinary = "/usr/bin/pluginkit";
-static const char* kFinderSyncBundleIdentifier = "com.seafile.seadrive.findersync";
+static const char* kFinderSyncBundleIdentifier = "com.teamdrive.teamdrive-client.findersync";
 
 static inline QString pluginPath() {
 #ifdef XCODE_APP
-    return QDir(utils::mac::mainBundlePath()).filePath("Contents/PlugIns/SeaDrive FinderSync.appex");
+    return QDir(utils::mac::mainBundlePath()).filePath("Contents/PlugIns/TeamDrive FinderSync.appex");
 #else
-    return QDir(utils::mac::mainBundlePath()).filePath("fsplugin/SeaDrive FinderSync.appex");
+    return QDir(utils::mac::mainBundlePath()).filePath("fsplugin/TeamDrive FinderSync.appex");
 #endif
 }
 
