@@ -13,7 +13,7 @@
 #endif
 
 #define HELPER_LOCATION \
-    (@"/Library/PrivilegedHelperTools/com.seafile.seadrive.helper")
+    (@"/Library/PrivilegedHelperTools/com.teamdrive.teamdrive.helper")
 
 static HelperClient *getHelperClient()
 {
@@ -79,7 +79,7 @@ static HelperClient *getHelperClient()
         return false;
     }
 
-    if (![self blessHelperWithLabel:@"com.seafile.seadrive.helper"
+    if (![self blessHelperWithLabel:@"com.teamdrive.teamdrive.helper"
                               error:&error]) {
         qWarning("Failed to install seadrive helper: %s",
                  NSERROR_TO_CSTR(error));

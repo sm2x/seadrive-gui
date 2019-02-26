@@ -35,7 +35,7 @@ HelperClient::HelperClient() : QObject()
 void HelperClient::xpcConnect()
 {
     xpc_client_ = [[MPXPCClient alloc]
-        initWithServiceName:@"com.seafile.seadrive.helper"
+        initWithServiceName:@"com.teamdrive.teamdrive.helper"
                  privileged:YES
                 readOptions:MPMessagePackReaderOptionsUseOrderedDictionary];
     xpc_client_.retryMaxAttempts = 4;

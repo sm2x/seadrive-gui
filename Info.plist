@@ -41,8 +41,8 @@
 	<string>True</string>
     <key>SMPrivilegedExecutables</key>
     <dict>
-      <key>com.seafile.seadrive.helper</key>
-      <string>identifier "com.seafile.seadrive.helper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "55LCTZ5354"</string>
+      <key>com.teamdrive.teamdrive.helper</key>
+      <string>identifier "com.teamdrive.teamdrive.helper" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "55LCTZ5354"</string>
     </dict>
     <!-- Always update this and CFBundleVersion in osxhelper/Info.plist together-->
 	<key>DriveHelperVersion</key>
