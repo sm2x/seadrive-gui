@@ -193,6 +193,7 @@ void SSODialog::fail(const QString &msg)
 
 void SSODialog::startSSOStatusCheck()
 {
+    qWarning() << QString("<%1><%2> begin to startSSOStatusCheck").arg(__LINE__).arg(__func__);
     sendSSOStatusRequest();
     sso_check_timer_->start(kSSOStatusCheckInterval);
 }
@@ -229,11 +230,16 @@ void SSODialog::onSSOSuccess(const QString &status,
                              const QString &email,
                              const QString &apikey)
 {
+    qWarning() << "SSO status =" << status << ", email =" << email
+             << ", api key =" << apikey;
     qDebug() << "SSO status =" << status << ", email =" << email
              << ", api key =" << apikey;
     if (status == "waiting")
     {
         qDebug("SSO status: waiting");
+        
+        qWarning("SSO status: waiting");
+        
         status_check_request_.reset();
     }
     else if (status == "success")
@@ -296,7 +302,9 @@ void SSODialog::onFetchAccountInfoFailed(const ApiError &error)
 
 void SSODialog::openSSOLoginLinkInBrowser()
 {
+    qWarning()<<QString("<%1><%2>: begin to use Browser to open url");
     QDesktopServices::openUrl(sso_login_link_);
+    qWarning()<<QString("<%1><%2>: end to use Browser to open url").arg(__LINE__).arg(__func__);
 }
 
 void SSODialog::closeEvent(QCloseEvent *event)

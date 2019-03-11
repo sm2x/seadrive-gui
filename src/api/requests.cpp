@@ -1461,6 +1461,7 @@ AuthPingRequest::AuthPingRequest(const Account &account)
                         SeafileApiRequest::METHOD_GET,
                         account.token)
 {
+    qWarning()<<QString("<%1><%2>%%%%%%%%%%AuthPing Request  token is : %3").arg(__LINE__).arg(__func__).arg(account.token);
 }
 
 void AuthPingRequest::requestSuccess(QNetworkReply &reply)
