@@ -147,7 +147,24 @@ void DaemonManager::startSeadriveDaemon()
                 SIGNAL(finished(int, QProcess::ExitStatus)),
                 this,
                 SLOT(onDaemonFinished(int, QProcess::ExitStatus)));
+
+#if defined(_MSC_VER)
+        args << sync_root_path;
+        QStringList args;
+        QString output;
+        args << "-Command");
+        args << "$(get-appxpackage -name \"*seadrive*\" | select -expandproperty PackageFamilyName)";
+        runAsCommand("powershell", args, &output)
+        QStringList args2;
+        QString output2;
+        args2 << "--Command";
+        args2 << "start shell:AppsFolder\\" + output + "!App";
+        args2 = args + collectSeaDriveArgs();
+        runAsCommand("powershell",args2, output2);
+#else
         seadrive_daemon_->start(RESOURCE_PATH(kSeadriveExecutable), collectSeaDriveArgs());
+#endif // _MSC_VER
+
     } else {
         qWarning() << "dev mode enabled, you are supposed to launch seadrive daemon yourself";
         transitionState(DAEMON_CONNECTING);
